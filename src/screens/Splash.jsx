@@ -7,7 +7,7 @@ const Splash = () => {
     useEffect(() => {
 
         const timer = setTimeout(() => {
-            navigate('/calculo_despesas/home')
+            navigate('./home')
         }, 3000)
 
 
