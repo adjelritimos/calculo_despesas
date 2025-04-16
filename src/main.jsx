@@ -1,21 +1,38 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { HashRouter, Routes, Route } from 'react-router-dom' // Alterado para HashRouter
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App.jsx'
 import Home from './screens/Home.jsx'
 import Splash from './screens/Splash.jsx'
 import NotFound from './screens/404.jsx'
 
+
+
+
+const router = createBrowserRouter([
+  {
+    path: "/calculo_despesas",
+    element: <App />,
+    children: [
+      {
+        path: "/calculo_despesas",
+        element: <Splash />,
+      },
+
+      {
+        path: "/calculo_despesas/home",
+        element: <Home />,
+      },
+      {
+        path: "*",
+        element: <NotFound />, 
+      }
+    ],
+  },
+])
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <HashRouter>
-      <Routes>
-        <Route path="/" element={<App />}>
-          <Route index element={<Splash />} />
-          <Route path="home" element={<Home />} />
-          <Route path="*" element={<NotFound />} />
-        </Route>
-      </Routes>
-    </HashRouter>
-  </React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>,
 )
