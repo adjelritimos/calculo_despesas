@@ -15,7 +15,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/calculo_despesas",
-        element: <Splash />,
+        element: <Home />,
       },
 
       {
