@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App.jsx'
 import Home from './screens/Home.jsx'
 import Splash from './screens/Splash.jsx'
+import NotFound from './screens/404.jsx'
 
 
 
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: "/calculo_despesas/home",
         element: <Home />,
+      },
+      {
+        path: "*",
+        element: <NotFound />, 
       }
     ],
   },
