@@ -9,7 +9,7 @@ const Splash = () => {
         const randomInteger = Math.floor(Math.random() * 3)
 
         const timer = setTimeout(() => {
-            navigate('/home')
+            navigate('/calculo_despesas/home')
         }, randomInteger * 1000)
 
 
