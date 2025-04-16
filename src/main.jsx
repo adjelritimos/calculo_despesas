@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App.jsx'
 import Home from './screens/Home.jsx'
 import Splash from './screens/Splash.jsx'
+import Calculator from './screens/calculate.jsx'
 
 
 
@@ -15,12 +16,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/calculo_despesas/",
-        element: <Splash />,
-      },
-
-      {
-        path: "/calculo_despesas/home",
-        element: <Home />,
+        element: <Calculator />,
       }
     ],
   },
