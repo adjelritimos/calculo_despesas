@@ -1,18 +1,6 @@
-import React, { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import React from 'react'
 
 const Splash = () => {
-    const navigate = useNavigate()
-
-    useEffect(() => {
-
-        const timer = setTimeout(() => {
-            navigate('/calculo_despesas/home')
-        }, 3000)
-
-
-        return () => clearTimeout(timer)
-    }, [navigate])
 
     return (
         <div className="d-flex justify-content-center align-items-center vh-100">
