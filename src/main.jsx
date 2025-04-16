@@ -10,7 +10,7 @@ import Splash from './screens/Splash.jsx'
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/calculo_despesas",
     element: <App />,
     children: [
       {
