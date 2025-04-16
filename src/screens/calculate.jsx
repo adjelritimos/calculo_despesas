@@ -12,8 +12,6 @@ const Calculator = () => {
         const timer = setTimeout(() => {
             setIsLoding(false)
         }, 3000)
-
-
         return () => clearTimeout(timer)
     }, [])
 
