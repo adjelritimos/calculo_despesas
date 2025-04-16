@@ -11,21 +11,17 @@ import NotFound from './screens/404.jsx'
 
 const router = createBrowserRouter([
   {
-    path: "/calculo_despesas",
+    path: "/calculo_despesas/",
     element: <App />,
     children: [
       {
-        path: "/",
+        path: "/calculo_despesas/",
         element: <Splash />,
       },
 
       {
-        path: "home",
+        path: "/calculo_despesas/home",
         element: <Home />,
-      },
-      {
-        path: "*",
-        element: <NotFound />, 
       }
     ],
   },
