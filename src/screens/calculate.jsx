@@ -13,6 +13,7 @@ const Calculator = () => {
             setIsLoding(false)
         }, 3000)
         return () => clearTimeout(timer)
+        
     }, [isLoding])
 
     return (
