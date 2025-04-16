@@ -6,11 +6,9 @@ const Splash = () => {
 
     useEffect(() => {
 
-        const randomInteger = Math.floor(Math.random() * 3)
-
         const timer = setTimeout(() => {
             navigate('/calculo_despesas/home')
-        }, randomInteger * 1000)
+        }, 3000)
 
 
         return () => clearTimeout(timer)
