@@ -92,7 +92,7 @@ function Home() {
 
             </div>
 
-            <div className="form-text">
+            <div className={ isMobile? "visually-hidden" : "form-text"}>
               <label className="form-label">Nº de dias</label>
               <input value={daysInMonth} type="text" className="form-control border-info text-end" aria-describedby="passwordHelpBlock" />
             </div>
