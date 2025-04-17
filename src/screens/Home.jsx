@@ -36,7 +36,7 @@ function Home() {
 
 
   return (
-    <div className={ isMobile ? "view d-flex flex-wrap p-3" : "view d-flex gap-2 p-3" }>
+    <div className={ isMobile ? "view d-flex flex-column gap-2 flex-wrap p-3" : "view d-flex gap-2 p-3" }>
       <div className={ isMobile ? "w-100 p-2 rounded bg-white" : "w-25 p-2 rounded bg-white" }>
         <div className="d-flex w-100 justify-content-between border-bottom border-info pb-2">
           <h1 className='fw-normal fs-4 text-info mt-auto mb-auto'>Elementos da casa</h1>
