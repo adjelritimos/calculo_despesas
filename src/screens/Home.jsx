@@ -21,16 +21,23 @@ function Home() {
   const [individualPayments, setIndividualPayments] = useState([])
   const [totalValue, setTotalValue] = useState(0)
   const [daysInMonth, setDaysInMonth] = useState(0)
+  const [isMobile, setIsMobile] = useState(false)
+
+  const handleResize = () => {
+    setIsMobile(window.innerWidth < 992)
+  }
 
   useEffect(() => {
     const savedMembers = getMembers()
     setMembers(savedMembers)
+    handleResize()
+
   }, [])
 
 
   return (
-    <div className="view d-flex gap-2 p-3">
-      <div className="w-25 p-2 rounded bg-white">
+    <div className={ isMobile ? "view d-flex flex-wrap p-3" : "view d-flex gap-2 p-3" }>
+      <div className={ isMobile ? "w-100 p-2 rounded bg-white" : "w-25 p-2 rounded bg-white" }>
         <div className="d-flex w-100 justify-content-between border-bottom border-info pb-2">
           <h1 className='fw-normal fs-4 text-info mt-auto mb-auto'>Elementos da casa</h1>
           <button type="button" data-bs-toggle="modal" data-bs-target="#adicionar" className="btn btn-info text-white fw-bold mt-auto mb-auto rounded-circle">+</button>
@@ -50,7 +57,7 @@ function Home() {
 
       </div>
 
-      <div className="w-75 p-2 rounded bg-white">
+      <div className={ isMobile ? "w-100 p-2 rounded bg-white" : "w-75 p-2 rounded bg-white" }>
         <div className="w-100 justify-content-between border-bottom border-info pb-2">
           <div className='d-flex gap-2'>
             <h1 className='fw-normal fs-4 text-info mt-auto mb-auto'>Calculadora de Despesas</h1>
