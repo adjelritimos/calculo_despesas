@@ -73,7 +73,7 @@ function Home() {
           </div>
           <div className="d-flex gap-2 text-end">
             <div className="form-text text-start">
-              <label className="form-label">Mês da fatura</label>
+              <label className="form-label">{ isMobile ? "Mês" : "Mês da fatura"}</label>
               <select value={selectedMonth} onChange={(e) => obterTotalDiasDoMesPorNome(e.target.value, setDaysInMonth, setSelectedMonth)} className="form-select border-info">
                 <option value="Selecione o mês da fatura" selected>selecione um mês</option>
                 <option value="janeiro">janeiro</option>
