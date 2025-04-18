@@ -11,6 +11,31 @@ import calculateIndividualPayment from '../functions/scalezoom/individualToPay'
 import limparTudo from '../functions/scalezoom/limparTudo'
 import removePartition from '../functions/scalezoom/removerPartition'
 
+const steps = [
+  {
+    title: 'Adicionar Membros',
+    content: 'Na sessão dos elementos da casa, contém um butão, que permite adicionar membros. Basta dar um clique nele e preencher o formulário com nome do novo membro.',
+  },
+  {
+    title: 'Selecionar tipo Fatura',
+    content: 'Selecione o tipo de fatura que deseja calcular, permite que na hora de fazer o download jáfica identificado o tipo de fatura que foi calculado.',
+  },
+  {
+    title: 'Selecionar Mês',
+    content: 'Você deverá selecionar um mês para qual a fatura será calculada, e em seguda o número do dia já será prenchido. depois colocarás o valor da fatura, e será feito o calculo por dia, que será preenchido o campo de valor por dia.',
+  },
+  {
+    elementId: 'add-partitions-button',
+    title: 'Adicionar Partições',
+    content: 'O butão "nova particão" permite adicionar novas partições, onde teras um formuário para preencher com o intervalo da partição indicando o dada de inicio e fim, bem como os elemetos que estavam em casa neste período.',
+  },
+  {
+    elementId: 'calculate-individual',
+    title: 'Exportação da imagem',
+    content: 'Tem um butão com icone de "download" que te permitirá fazer o download da imagem da fatura, com o valor por dia, e o valor total da fatura, as partições e os membros, e o valor total que cada membro deve pagar.',
+  },
+]
+
 function Home() {
 
   const [members, setMembers] = useState([])
@@ -59,17 +84,37 @@ function Home() {
 
       <div className={isMobile ? "w-100 p-2 rounded bg-white" : "w-75 p-2 rounded bg-white"}>
         <div className="w-100 justify-content-between border-bottom border-info pb-2">
-          <div className='d-flex gap-2'>
-            <h1 className='fw-normal fs-4 text-info mt-auto mb-auto'>Calculadora de Despesas</h1>
-            <div className="form-text text-start">
-              <select value={fatureName} onChange={(e) => { setFatureName(e.target.value); limparTudo(setPartitions, setValueByDay, setSelectedMonth, setIndividualPayments, setTotalValue, setDaysInMonth) }} className="form-select border-info">
-                <option value="Selecione a fatura" selected>selecione um tipo</option>
-                <option value="Água">Água</option>
-                <option value="Energia">Energia</option>
-                <option value="Gás">Gás</option>
-                <option value="Internet">Internet</option>
-              </select>
+          <div className='d-flex gap-2 justify-content-between'>
+            <div className='d-flex gap-2'>
+              <h1 className='fw-normal fs-4 text-info mt-auto mb-auto'>Calculadora de Despesas</h1>
+              <div className="form-text text-start">
+                <select value={fatureName} onChange={(e) => { setFatureName(e.target.value); limparTudo(setPartitions, setValueByDay, setSelectedMonth, setIndividualPayments, setTotalValue, setDaysInMonth) }} className="form-select border-info">
+                  <option value="Selecione a fatura" selected>selecione um tipo</option>
+                  <option value="Água">Água</option>
+                  <option value="Energia">Energia</option>
+                  <option value="Gás">Gás</option>
+                  <option value="Internet">Internet</option>
+                </select>
+              </div>
             </div>
+
+            <p className="btn btn-outline-info border border-white rounded-pill" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">ajuda</p>
+
+            <div className="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+              <div className="offcanvas-header border-bottom border-info">
+                <h5 className="offcanvas-title fw-bold text-info" id="offcanvasRightLabel">Ajudas para uso do site</h5>
+                <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              </div>
+              <div className="offcanvas-body">
+                {steps.map((step, index) => (
+                  <div key={index} className="btn btn-outline-light text-dark text-start mb-2" id={step.elementId}>
+                    <h3>{step.title}</h3>
+                    <p style={{textAlign: 'justify'}} className='text-justify'>{step.content}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
           </div>
           <div className="d-flex gap-2 text-end">
             <div className="form-text text-start">
@@ -124,7 +169,7 @@ function Home() {
         <div className="w-100 overflow-auto" style={{ height: "calc(100vh - 200px)" }}>
           <div className="d-flex w-100 justify-content-between border-bottom border-info pt-2 pb-2">
             <h1 className='fw-normal fs-4 text-info mt-auto mb-auto'>Partições</h1>
-            <button type="button" data-bs-toggle="modal" data-bs-target="#adicionarPart" className="btn btn-info text-white fw-bold mt-auto mb-auto rounded-circle">+</button>
+            <button type="button" data-bs-toggle="modal" data-bs-target="#adicionarPart" className="btn btn-info text-white fw-bold mt-auto mb-auto rounded-pill">+ nova partição</button>
             <AddPartitions valueByDay={valueByDay} members={members} partitions={partitions} setPartitions={setPartitions} />
           </div>
           <div className="d-flex flex-column gap-2 pt-2">
