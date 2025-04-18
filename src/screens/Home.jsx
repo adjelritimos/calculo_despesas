@@ -36,8 +36,8 @@ function Home() {
 
 
   return (
-    <div className={ isMobile ? "view d-flex flex-column gap-2 p-3" : "view d-flex gap-2 p-3" }>
-      <div className={ isMobile ? "w-100 p-2 rounded bg-white" : "w-25 p-2 rounded bg-white" }>
+    <div className={isMobile ? "view d-flex flex-column gap-2 p-3" : "view d-flex gap-2 p-3"}>
+      <div className={isMobile ? "w-100 p-2 rounded bg-white" : "w-25 p-2 rounded bg-white"}>
         <div className="d-flex w-100 justify-content-between border-bottom border-info pb-2">
           <h1 className='fw-normal fs-4 text-info mt-auto mb-auto'>Elementos da casa</h1>
           <button type="button" data-bs-toggle="modal" data-bs-target="#adicionar" className="btn btn-info text-white fw-bold mt-auto mb-auto rounded-circle">+</button>
@@ -57,7 +57,7 @@ function Home() {
 
       </div>
 
-      <div className={ isMobile ? "w-100 p-2 rounded bg-white" : "w-75 p-2 rounded bg-white" }>
+      <div className={isMobile ? "w-100 p-2 rounded bg-white" : "w-75 p-2 rounded bg-white"}>
         <div className="w-100 justify-content-between border-bottom border-info pb-2">
           <div className='d-flex gap-2'>
             <h1 className='fw-normal fs-4 text-info mt-auto mb-auto'>Calculadora de Despesas</h1>
@@ -73,7 +73,7 @@ function Home() {
           </div>
           <div className="d-flex gap-2 text-end">
             <div className="form-text text-start">
-              <label className="form-label">{ isMobile ? "Mês" : "Mês da fatura"}</label>
+              <label className="form-label">{isMobile ? "Mês" : "Mês da fatura"}</label>
               <select value={selectedMonth} onChange={(e) => obterTotalDiasDoMesPorNome(e.target.value, setDaysInMonth, setSelectedMonth)} className="form-select border-info">
                 <option value="Selecione o mês da fatura" selected>selecione um mês</option>
                 <option value="janeiro">janeiro</option>
@@ -92,7 +92,7 @@ function Home() {
 
             </div>
 
-            <div className={ isMobile? "visually-hidden" : "form-text"}>
+            <div className={isMobile ? "visually-hidden" : "form-text"}>
               <label className="form-label">Nº de dias</label>
               <input value={daysInMonth} type="text" className="form-control border-info text-end" aria-describedby="passwordHelpBlock" />
             </div>
@@ -139,7 +139,7 @@ function Home() {
                     <div className='d-flex justify-content-between gap-2'>
                       <p className="mb-0 text-info fw-bold text-end">Elementos</p>
                       <button onClick={() => removePartition(partition.id, partitions, setPartitions)} type="button" className="btn btn-outline-danger mt-auto mb-auto rounded-circle border-white btn-sm">
-                      <i className="fa-solid fa-trash"></i>
+                        <i className="fa-solid fa-trash"></i>
                       </button>
                     </div>
                     <div className="d-flex gap-2">
@@ -161,7 +161,6 @@ function Home() {
             ))}
           </div>
         </div>
-
       </div>
       <ToastContainer />
     </div>

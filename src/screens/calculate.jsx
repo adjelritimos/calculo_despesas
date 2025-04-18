@@ -11,7 +11,7 @@ const Calculator = () => {
 
         const timer = setTimeout(() => {
             setIsLoding(false)
-        }, 3000)
+        }, Math.floor(Math.random() * 4) * 1000)
         return () => clearTimeout(timer)
         
     }, [isLoding])

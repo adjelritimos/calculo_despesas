@@ -3,9 +3,17 @@ import addMember from '../functions/addMember'
 
 const AddMembers = (props) => {
     const [name, setName] = useState('')
+    const [hide, setHide] = useState(false)
+
+    const handleAddMember = (e) => {
+        e.preventDefault()
+        addMember(name, props.setMembers)
+        setName('')
+        setHide(false)
+    }
 
     return (
-        <div className="modal fade" id="adicionar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <form onSubmit={(e) => handleAddMember(e)} className="modal fade" id="adicionar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog">
                 <div className="modal-content">
                     <div className="modal-header pb-0 border-white">
@@ -14,15 +22,15 @@ const AddMembers = (props) => {
                     </div>
                     <div className="modal-body pb-0 pt-0">
                         <div className="form-text">
-                            <input type="text"placeholder='Nome do membro' className="form-control border-info" value={name} onChange={(e) => setName(e.target.value)}/>
+                            <input type="text" required placeholder='Nome do membro' className="form-control border-info" value={name} onChange={(e) => {setName(e.target.value); setHide(e.target.value.length > 0)}} />
                         </div>
                     </div>
                     <div className="modal-footer border-white">
-                        <button onClick={()=> addMember(name, props.setMembers)} type="button" className="btn btn-info fw-bold text-white rounded-pill w-100" data-bs-dismiss="modal">Adicionar</button>
+                        <button type="submit" className="btn btn-info fw-bold text-white rounded-pill w-100"  data-bs-dismiss={hide ? "modal": ""}>Adicionar</button>
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
 
     )
 }
