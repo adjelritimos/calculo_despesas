@@ -1,3 +1,7 @@
 .view {
   height: calc(100vh - 10px)
 }
+
+.totorial {
+  height: 200px;
+}

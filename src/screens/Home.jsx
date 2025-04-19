@@ -10,29 +10,36 @@ import IndividualValue from '../components/IndividualValue'
 import calculateIndividualPayment from '../functions/scalezoom/individualToPay'
 import limparTudo from '../functions/scalezoom/limparTudo'
 import removePartition from '../functions/scalezoom/removerPartition'
+import Totorial from '../components/totorial'
+
 
 const steps = [
   {
     title: 'Adicionar Membros',
     content: 'Na sessão dos elementos da casa, contém um butão, que permite adicionar membros. Basta dar um clique nele e preencher o formulário com nome do novo membro.',
+    image: '../assets/addmember.gif',
   },
   {
     title: 'Selecionar tipo Fatura',
     content: 'Selecione o tipo de fatura que deseja calcular, permite que na hora de fazer o download jáfica identificado o tipo de fatura que foi calculado.',
+    image: '../assets/selectFaturaType.gif',
   },
   {
     title: 'Selecionar Mês',
     content: 'Você deverá selecionar um mês para qual a fatura será calculada, e em seguda o número do dia já será prenchido. depois colocarás o valor da fatura, e será feito o calculo por dia, que será preenchido o campo de valor por dia.',
+    image: '../assets/selectMonth.gif',
   },
   {
     elementId: 'add-partitions-button',
     title: 'Adicionar Partições',
     content: 'O butão "nova particão" permite adicionar novas partições, onde teras um formuário para preencher com o intervalo da partição indicando o dada de inicio e fim, bem como os elemetos que estavam em casa neste período.',
+    image: '../assets/addPartition.gif',
   },
   {
     elementId: 'calculate-individual',
     title: 'Exportação da imagem',
     content: 'Tem um butão com icone de "download" que te permitirá fazer o download da imagem da fatura, com o valor por dia, e o valor total da fatura, as partições e os membros, e o valor total que cada membro deve pagar.',
+    image: '../assets/dodownload.gif',
   },
 ]
 
@@ -68,7 +75,7 @@ function Home() {
           <button type="button" data-bs-toggle="modal" data-bs-target="#adicionar" className="btn btn-info text-white fw-bold mt-auto mb-auto rounded-circle">+</button>
           <AddMembers setMembers={setMembers} />
         </div>
-
+        <Totorial totoriais={steps} />
         <div className="w-100">
           <ul className="list-group list-group-flush mt-3">
             {members.map(member => (
