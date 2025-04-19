@@ -177,7 +177,7 @@ function Home() {
           <div className="d-flex w-100 justify-content-between border-bottom border-info pt-2 pb-2">
             <h1 className='fw-normal fs-4 text-info mt-auto mb-auto'>Partições</h1>
             <button type="button" data-bs-toggle="modal" data-bs-target="#adicionarPart" className="btn btn-info text-white fw-bold mt-auto mb-auto rounded-pill">+ nova partição</button>
-            <AddPartitions valueByDay={valueByDay} members={members} partitions={partitions} setPartitions={setPartitions} />
+            <AddPartitions limit={totalValue} valueByDay={valueByDay} members={members} partitions={partitions} setPartitions={setPartitions} />
           </div>
           <div className="d-flex flex-column gap-2 pt-2">
             {partitions && partitions.map(partition => (
