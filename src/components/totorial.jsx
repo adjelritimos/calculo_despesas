@@ -31,10 +31,9 @@ const totoriais = [
   ]
 
 const Totorial = () => {
-    // Estado para armazenar os tutoriais e o índice do tutorial atual
-    localStorage.removeItem('hasSeenTotorial')
+    
     const [currentTutorialIndex, setCurrentTutorialIndex] = useState(0)
-    const [show, setShow] = useState(true)
+    const [show, setShow] = useState(localStorage.getItem('hasSeenTotorial') !== 'true')
 
     // Função para avançar para o próximo tutorial
     const handleNext = () => {
