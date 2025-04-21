@@ -9,11 +9,11 @@ import Calculator from './screens/calculate.jsx'
 
 const router = createBrowserRouter([
   {
-    path: "/calculadora",
+    path: "/",
     element: <App />,
     children: [
       {
-        path: "/calculadora",
+        path: "/",
         element: <Calculator />,
       }
     ],
