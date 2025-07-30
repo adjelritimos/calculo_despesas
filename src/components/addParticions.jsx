@@ -29,7 +29,7 @@ const AddPartitions = (props) => {
             const diffTime = Math.abs(end - start)
             const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1
 
-            if(props.valueByDay * diffDays <= props.limit) {
+            if(props.valueByDay * diffDays <= props.limit + 2) {
 
             if (end < start) {
                 mensagemAviso('Data final não pode ser menor que data inicial')
